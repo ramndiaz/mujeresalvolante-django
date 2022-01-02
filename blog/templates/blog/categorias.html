@@ -1,0 +1,45 @@
+{% extends "mavrdapp/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+    {% for post in posts %}
+
+        <section class="page-section clearfix">
+            <div class="container">
+            <div class="intro">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt="" style="width: 50%; margin-left: 50%;">
+                <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4" >
+                    <span class="section-heading-upper">{{post.titulo}}</span>
+                    <span class="section-heading-upper">{{post.author}}</span>
+                    <span class="section-heading-upper">
+                        {% for categoria in post.categorias.all %}
+                            {{categoria.nombre}}
+                        {% endfor %}
+                    </span>
+                    <!-- <span class="section-heading-lower">{{servicio.titulo}}</span> -->
+                </h2>
+                <p class="mb-3"> {{post.contenido}} </p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+    {% endfor %}
+   <!-- <section>
+        <div style="width:75%; background-color: rgb(177, 38, 154); margin: auto; text-align: center; color:black">
+            <p>
+                categorias:
+                {% for post in posts %}
+                    {% for categoria in post.categorias.all %}
+                    {{categoria.nombre}}
+                    {% endfor %}
+                {% endfor %}
+            </p>
+        </div>
+    </section> -->
+
+{% endblock %}

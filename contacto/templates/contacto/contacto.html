@@ -1,0 +1,22 @@
+{% extends "mavrdapp/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class='divForm'>
+    {% if "valido" in request.GET %}
+        <p>informacion enviada correctamente</p>
+    {% endif %}
+    <form action="" method="POST" class='formContacto'>
+        {% csrf_token %}
+        <table class='tableContacto'>
+            {{ miFormulario.as_table }}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+
+
+{% endblock %}
