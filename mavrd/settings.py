@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mavrdapp',
     'servicios',
+    'nosotros',
+    'tienda',
     'contacto',
     'blog',
 ]

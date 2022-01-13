@@ -7,7 +7,7 @@
 
     {% for post in posts %}
 
-        <section class="page-section clearfix">
+        <!-- <section class="page-section clearfix">
             <div class="container">
             <div class="intro">
                 <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt="" style="width: 50%; margin-left: 50%;">
@@ -20,13 +20,35 @@
                             {{categoria.nombre}}
                         {% endfor %}
                     </span>
-                    <!-- <span class="section-heading-lower">{{servicio.titulo}}</span> -->
+                    <!- <span class="section-heading-lower">{{servicio.titulo}}</span> ->
                 </h2>
                 <p class="mb-3"> {{post.contenido}} </p>
                 </div>
             </div>
             </div>
-        </section>
+        </section> -->
+
+        <div class="card text-white bg-primary mb-3" style="max-width: 1540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{post.imagen.url}}" class="img-fluid rounded-start" alt="..." style="margin:30px;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{post.titulo}}</h5>
+                  <p class="card-text">{{post.contenido}}</p>
+                  <p class="card-text"><small class="text-muted">{{post.author}}</small></p>
+                  <p class="card-text">
+                      <small class="text-muted">categoria:
+                        {% for categoria in post.categorias.all %}
+                            {{categoria.nombre}}
+                        {% endfor %}
+                    </small>
+                </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
     {% endfor %}
    <section>

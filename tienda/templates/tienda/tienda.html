@@ -1,0 +1,28 @@
+{% extends "mavrdapp/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+    {% for curso in cursos %}
+    <!--{{curso.imagen.url}}{{curso.nombre}}{{curso.categoria}}{{curso.disponibilidad}}{{curso.link}}-->
+        <div class="col md-3">
+            <div class="card text-center text-white bg-success mb-3" style="width: 18rem; margin: 25px;">
+                <div class="card-header">
+                    {{curso.nombre}}
+                </div>
+                <img class="card-img-top" src="{{curso.imagen.url}}" alt="Curso seleccionado">
+                <div class="card-body">
+                <a href="{{curso.link}}" class="btn btn-primary">ir al curso</a>
+                </div>
+                <div class="card-footer text-muted" style="color: aliceblue;">
+                    categoria: {{curso.categoria}}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -23,7 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('servicios/', include('servicios.urls')),
     path('contacto/', include('contacto.urls')),
+    path('nosotros/', include('nosotros.urls')),
     path('blog/', include('blog.urls')),
+    path('tienda/', include('tienda.urls')),
     path('mavrd/', include('mavrdapp.urls'))
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
