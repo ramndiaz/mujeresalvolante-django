@@ -4,18 +4,26 @@
 
 
 {% block content %}
+<div class="text-center" style="color:aliceblue; margin: auto; max-width: 600px;">
+    {% include "carro/carro_widget.html"%}
+</div>
 <div class="container">
     <div class="row">
     {% for curso in cursos %}
     <!--{{curso.imagen.url}}{{curso.nombre}}{{curso.categoria}}{{curso.disponibilidad}}{{curso.link}}-->
         <div class="col md-3">
-            <div class="card text-center text-white bg-success mb-3" style="width: 18rem; margin: 25px;">
+            <div class="card text-center bg-warning mb-3" style="width: auto; max-width: 200px; margin: auto; color:rgb(90, 90, 250)">
                 <div class="card-header">
                     {{curso.nombre}}
                 </div>
+                <div class="card-body">
+                    <h5>precio: $ {{curso.precio}}</h5>
+                </div>
                 <img class="card-img-top" src="{{curso.imagen.url}}" alt="Curso seleccionado">
                 <div class="card-body">
-                <a href="{{curso.link}}" class="btn btn-primary">ir al curso</a>
+                    <a href="{% url 'carro:agregar' curso.id %}" class="btn btn-primary">agregar al carrito</a>
+                    <p><a href="{{curso.link}}" class="card-link">ir al curso</a></p>
+                    <!-- <a href="{{curso.link}}" class="btn btn-primary">ir al curso</a> -->
                 </div>
                 <div class="card-footer text-muted" style="color: aliceblue;">
                     categoria: {{curso.categoria}}
